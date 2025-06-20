@@ -7,20 +7,20 @@ then calculate the congruence between predicted quartets and a reference tree to
 
 
 
-## Objective and data
+## Dataset and Scripts 
 
+We will use a dataset [from this paper](https://doi.org/10.1186/1471-2148-11-114).<br>
+The repository includes the following:<br>
+Train_neural_network.py — script to train a neural network on site pattern frequencies.<br>
+training_data/ — contains precomputed training data:<br>
+    site_pattern_frequencies.npy: input features<br>
+    topology_labels.npy: corresponding tree topologies<br>
+concatenated_alignment_of_frogs_genes.fas — alignment of real frog gene sequences.<br>
+frog_concat.part.contree — reference tree for quartet mapping.<br>
+quartet_mapping.py — script to predict quartet topologies and compare them to the reference tree.<br>
+visualise_tree.py — script to visualise a reference topology.<br>
 
-We will use a dataset [from this paper](https://doi.org/10.1186/1471-2148-11-114).
-The repository includes the following:
-Train_neural_network.py — script to train a neural network on site pattern frequencies.
-training_data/ — contains precomputed training data:
-    site_pattern_frequencies.npy: input features
-    topology_labels.npy: corresponding tree topologies
-concatenated_alignment_of_frogs_genes.fas — alignment of real frog gene sequences.
-frog_concat.part.contree — reference tree for quartet mapping.
-quartet_mapping.py — script to predict quartet topologies and compare them to the reference tree.
-visualise_tree.py — script to visualise a reference topology
-
+## Getting Started 
 Let's start by cloning this repository:
   
 ```
@@ -28,10 +28,9 @@ git clone https://github.com/KulyaNikita/Machine-Learning-Phylogenomics-Workshop
 cd Machine-Learning-Phylogenomics-Workshop-St-Andrews
 ```
 
-## Environment setting
+## Set Up the Environment
 
-
-Before starting a neural network training we should install all required packages. For that you should run commands below:
+To install required packages, use:
 
 ```
 mamba env create -f environment.yml
@@ -39,8 +38,7 @@ mamba env create -f environment.yml
 conda activate deepnnphylo 
 ```
 
-Also we need to activate a supportative script for a conversion of alignments to site pattern frequencies.
-For that run the following commands
+To convert alignments into site pattern frequencies, compile the support script:
  
 ```
 cd quartet_pattern_counter/
@@ -48,7 +46,7 @@ chmod u+x compile.sh
 ./compile.sh
 cd ..
 ```
-## Tree visualization
+## Tree Visualization
 
 You can inspect the reference phylogeny using:
 
@@ -70,7 +68,7 @@ python3 Train_neural_network.py training_data/site_pattern_frequencies.npy train
 What accuracy did your model achieve?
 
 
-## Predict all the quartets of the alignment and map them back to the reference tree topology 
+## Predict and Map Quartets 
 
 Use your trained model to predict quartet topologies and calculate quartets congruence with the reference tree:
 ```
