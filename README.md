@@ -12,40 +12,40 @@ Using this model you will estimate the difficultness of the provided tree topolo
 ## Objective and data
 
 
-We will use a dataset [https://doi.org/10.1186/1471-2148-11-114](https://academic.oup.com/sysbio/article/65/6/1057/2281640). The starting point is a subset of proteins obtained from genomes/transcriptomes for 23 species of vertebrates. Our aim is to reconstruct the phylogeny of these species using concatenated and coalescent approaches. In practice, we are using a small subset of the full genomes/transcriptomes of these species, only to speed up computations.
+We will use a dataset [from this paper](https://doi.org/10.1186/1471-2148-11-114). In the repo we have following files (1) a script to train a neural network "Train_neural_network.py"
+(2) beforehand prepared training data with saved site pattern frequencies and corresponding tree topologies under the folder "training_data/".
+(3) the alignment file "concatenated_alignment_of_frogs_genes.fas"
+(4) reference tree topology against which we will run quartet mapping "frog_concat.part.contree"
+(5) a script to make predictions of the quartets and map them on the reference topology "quartet_mapping.py"
 
-Let's start by cloning this repository. The data can be found in the `vertebrate_proteomes` folder.
+Let's start by cloning this repository:
+  
+```
+git clone https://github.com/KulyaNikita/Machine-Learning-Phylogenomics-Workshop-St-Andrews.git
+
+```
+
+## Environment setting
+
+
+Before starting a neural network training we should install all required packages. For that you should run commands below:
+
+```
+mamba env create -f environment.yml
+
+conda activate deepnnphylo 
+```
+
+Also we need to activate a supportative script for a conversion of alignments to site pattern frequencies.
+For that run the following commands
 
 <details>
   <summary>Need help?</summary>
   
 ```
-git clone https://github.com/iirisarri/PEB_Phylogenomics.git
-
-```
-</details>
-
-
-You will see 23 fasta files in total, each containing a set of proteins from a different species.
-
-
-
-## Inferring ortholog groups
-
-
-The first step is to identify orthologs among all the proteins. We will use [OrthoFinder](https://github.com/davidemms/OrthoFinder) for this task, which is simple to run. Just provide the folder containing the proteome files and tell the software to stop after inferring orthogroups and writing out sequence files for each orthogroup:
-
-```
-orthofinder -os -M msa -S blast -f vertebrate_proteomes
-```
-
-The list of single-copy orthologs will be in a file called `Orthogroups/Orthogroups.tsv`. This file contains lists of sequence names inferred to belong to the same orthogroups. The sequence files of these orthogroups can be found in `Orthogroup_Sequences`. Each file corresponds to one orthogroup ("gene"), containing one sequence per species. Check that!
-
-<details>
-  <summary>Need help?</summary>
-  
-```
-e.g. less -S OG0000006.fa
+cd quartet_pattern_counter/
+chmod u+x compile.sh
+./compile.sh
 ```
 </details>
 
