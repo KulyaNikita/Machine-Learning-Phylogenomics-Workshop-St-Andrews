@@ -1,4 +1,4 @@
-# St. Andrew: Machine Learning Phylogenomics
+# St. Andrews: Machine Learning Phylogenomics
 
 
 Welcome to this hands-on exercise in machine learning phylogenomics.<br>
