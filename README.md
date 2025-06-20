@@ -1,8 +1,8 @@
 # St. Andrew: Machine Learning Phylogenomics
 
 
-Welcome to this hands-on exercise in machine learning phylogenomics.
-In this assignment, you will train your own neural network to predict the topology of 4-taxon trees and  
+Welcome to this hands-on exercise in machine learning phylogenomics.<br>
+In this assignment, you will train your own neural network to predict the topology of 4-taxon trees and<br>  
 then calculate the congruence between predicted quartets and a reference tree topology.
 
 
@@ -13,8 +13,9 @@ We will use a dataset [from this paper](https://doi.org/10.1186/1471-2148-11-114
 The repository includes the following:<br>
 Train_neural_network.py — script to train a neural network on site pattern frequencies.<br>
 training_data/ — contains precomputed training data:<br>
-    site_pattern_frequencies.npy: input features<br>
-    topology_labels.npy: corresponding tree topologies<br>
+>site_pattern_frequencies.npy: input features<br>
+>topology_labels.npy: corresponding tree topologies<br>
+
 concatenated_alignment_of_frogs_genes.fas — alignment of real frog gene sequences.<br>
 frog_concat.part.contree — reference tree for quartet mapping.<br>
 quartet_mapping.py — script to predict quartet topologies and compare them to the reference tree.<br>
@@ -52,7 +53,6 @@ You can inspect the reference phylogeny using:
 
 ```
 python3 visualise_tree.py frog_concat.part.contree
-
 ```
 Are the branches long or short?
 
