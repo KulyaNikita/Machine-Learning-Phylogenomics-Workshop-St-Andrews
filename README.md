@@ -2,7 +2,7 @@
 
 
 Welcome to this hands-on exercise in machine learning phylogenomics.<br>
-In this assignment, you will train your own neural network to predict the topology of 4-taxon trees and<br>  
+In this assignment, you will train your own neural network to predict the topology of 4-taxon trees and 
 then calculate the congruence between predicted quartets and a reference tree topology.
 
 
