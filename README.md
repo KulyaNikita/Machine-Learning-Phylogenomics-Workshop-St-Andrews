@@ -103,7 +103,7 @@ Once PolyMoSim is compiled, you can generate your own training data by running:
 ```
 Example:
 ```
- python3 simulate_training_data.py 100 JC PolyMoSim/PolyMoSim-v1.1.6-devel} 
+ python3 simulate_training_data.py 100 JC PolyMoSim/PolyMoSim-v1.1.6-devel 
 ```
 What kind of files did you get? 
 
