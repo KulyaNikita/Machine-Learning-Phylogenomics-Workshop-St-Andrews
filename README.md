@@ -21,6 +21,12 @@ frog_concat.part.contree — reference tree for quartet mapping.<br>
 quartet_mapping.py — script to predict quartet topologies and compare them to the reference tree.<br>
 visualise_tree.py — script to visualise a reference topology.<br>
 
+## Training Dataset 
+
+The training dataset was generated using  [PolyMoSim](https://github.com/cmayer/PolyMoSim/tree/main), a tool for simulating sequence evolution.<br> 
+It includes 30,000 four-taxon alignments, each evolved under the GTR+I+G substitution model.<br>
+The simulation parameters were chosen to broadly reflect the range of values observed in empirical datasets.
+
 ## Getting Started 
 Let's start by cloning this repository:
   

@@ -9,6 +9,11 @@ tree_file = sys.argv[1]
 
 tree = Tree(tree_file, parser=1)
 
+taxon1 = "Ascaphus_truei"
+taxon2 = "Leiopelma_archeyi"
+mrca = tree.common_ancestor(taxon1, taxon2)
+
+tree.set_outgroup(mrca)
 tree.explore()
 
 input()
