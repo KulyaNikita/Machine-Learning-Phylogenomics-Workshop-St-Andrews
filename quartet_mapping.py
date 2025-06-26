@@ -6,11 +6,14 @@ import re
 import os
 import subprocess
 import numpy as np
-from keras.models import load_model
 from numpy import argmax
 import itertools
 from math import comb
 from Bio import SeqIO
+import time
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+from keras.models import load_model
 
 
 #Paths to the files and other arguments
@@ -113,11 +116,15 @@ subprocess.run(command, shell=True)
 # Load the memory-mapped array
 frequency_array = np.load(numpy_output_file, mmap_mode='r')
 
+print("Number of quartets, number of features: ", frequency_array.shape)
+
 # Load Machine Learning Model
 machine_learning_model = load_model(machine_learning_model_path)
 
 # Make Predictions
+starttime = time.time()
 topology_prediction = machine_learning_model.predict(frequency_array)
+print("Time needed for ", topology_prediction.shape[0], " predictions ", time.time()-starttime)
 list_predictions = argmax(topology_prediction, axis=1)
 
 # Find number of sequences in the alignment
